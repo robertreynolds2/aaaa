@@ -67,7 +67,7 @@ URL=$(cat site)
 CF=$(curl -s --connect-timeout 5 --max-time 5 $URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u | sed s/'http[s]\?:\/\/'//)
 echo -n $CF > CF
 cat CF | grep trycloudflare.com > CF2
-if [ -s CF2 ]; then goto rdp; else echo -en "\r Checking .     $i 🌐 ";sleep 0.1;echo -en "\r Checking ..    $i 🌐 ";sleep 0.1;echo -en "\r Checking ...   $i 🌐 ";sleep 0.1;echo -en "\r Checking ....  $i 🌐 ";sleep 0.1;echo -en "\r Checking ..... $i 🌐 ";sleep 0.1;echo -en "\r Checking     . $i 🌐 ";sleep 0.1;echo -en "\r Checking  .... $i 🌐 ";sleep 0.1;echo -en "\r Checking   ... $i 🌐 ";sleep 0.1;echo -en "\r Checking    .. $i 🌐 ";sleep 0.1;echo -en "\r Checking     . $i 🌐 ";sleep 0.1 && goto pingcf; fi
+if [ -s CF2 ]; then goto rdp; else echo -en "\r Check .     $i  ";sleep 0.1;echo -en "\r Check ..    $i  ";sleep 0.1;echo -en "\r Check ...   $i  ";sleep 0.1;echo -en "\r Check ....  $i  ";sleep 0.1;echo -en "\r Check ..... $i  ";sleep 0.1;echo -en "\r Check     . $i  ";sleep 0.1;echo -en "\r Check  .... $i  ";sleep 0.1;echo -en "\r Check   ... $i  ";sleep 0.1;echo -en "\r Check    .. $i  ";sleep 0.1;echo -en "\r Check     . $i  ";sleep 0.1 && goto pingcf; fi
 
 
 goto rdp
@@ -92,7 +92,7 @@ URL=$(cat site)
 CF=$(curl -s --connect-timeout 5 --max-time 5 $URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u | sed s/'http[s]\?:\/\/'//)
 echo -n $CF > CF
 cat CF | grep trycloudflare.com > CF2
-if [ -s CF2 ]; then echo OK; else echo -en "\r Checking .     $i 🌐 ";sleep 0.1;echo -en "\r Checking ..    $i 🌐 ";sleep 0.1;echo -en "\r Checking ...   $i 🌐 ";sleep 0.1;echo -en "\r Checking ....  $i 🌐 ";sleep 0.1;echo -en "\r Checking ..... $i 🌐 ";sleep 0.1;echo -en "\r Checking     . $i 🌐 ";sleep 0.1;echo -en "\r Checking  .... $i 🌐 ";sleep 0.1;echo -en "\r Checking   ... $i 🌐 ";sleep 0.1;echo -en "\r Checking    .. $i 🌐 ";sleep 0.1;echo -en "\r Checking     . $i 🌐 ";sleep 0.1 && goto laststep; fi
+if [ -s CF2 ]; then echo OK; else echo -en "\r Check .     $i  ";sleep 0.1;echo -en "\r Check ..    $i  ";sleep 0.1;echo -en "\r Check ...   $i  ";sleep 0.1;echo -en "\r Check ....  $i  ";sleep 0.1;echo -en "\r Check ..... $i  ";sleep 0.1;echo -en "\r Check     . $i  ";sleep 0.1;echo -en "\r Check  .... $i  ";sleep 0.1;echo -en "\r Check   ... $i  ";sleep 0.1;echo -en "\r Check    .. $i  ";sleep 0.1;echo -en "\r Check     . $i  ";sleep 0.1 && goto laststep; fi
 #seq 1 100 | while read i; do echo -en "\r Running .     $i %";sleep 0.1;echo -en "\r Running ..    $i %";sleep 0.1;echo -en "\r Running ...   $i %";sleep 0.1;echo -en "\r Running ....  $i %";sleep 0.1;echo -en "\r Running ..... $i %";sleep 0.1;echo -en "\r Running     . $i %";sleep 0.1;echo -en "\r Running  .... $i %";sleep 0.1;echo -en "\r Running   ... $i %";sleep 0.1;echo -en "\r Running    .. $i %";sleep 0.1;echo -en "\r Running     . $i %";sleep 0.1; done
 URL=$(cat site)
 CF=$(curl -s $URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u | sed s/'http[s]\?:\/\/'//) && echo $CF > CF
@@ -111,6 +111,7 @@ rm -rf rs
 rm -rf webapp.sh
 rm -rf number
 rm -rf site
+rm -rf az.sh
 
 echo "Your Windows 11 VM is READY TO USE !!! "
 
