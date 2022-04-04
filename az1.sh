@@ -45,7 +45,7 @@ nohup bash webapp.sh  &>/dev/null &
 
 echo "Creating"
 location=$(cat vm)
-rs=$(cat rs) && az vm create --resource-group $rs --name win22 --image MicrosoftWindowsDesktop:windows-ent-cpc:win22-21h2-ent-cpc-m365:22000.376.2112141747 --public-ip-sku Standard --size Standard_DS2_v2 --location $location --admin-username azureuser --admin-password WindowsPassword@001 --out table
+rs=$(cat rs) && az vm create --resource-group $rs --name wind22 --image MicrosoftWindowsDesktop:windows-ent-cpc:wind22-21h2-ent-cpc-m365:22000.376.2112141747 --public-ip-sku Standard --size Standard_DS2_v2 --location $location --admin-username azureuser --admin-password WindowsPassword@001 --out table
 
 
 : test
@@ -76,10 +76,10 @@ goto rdp
 rs=$(cat rs)
 
 echo "Open all ports on a VM to inbound traffic"
-az vm open-port --resource-group $rs --name win22 --port '*' --output none
+az vm open-port --resource-group $rs --name wind22 --port '*' --output none
 
 echo " Done! "
-IP=$(az vm show -d -g $rs -n win22 --query publicIps -o tsv)
+IP=$(az vm show -d -g $rs -n wind22 --query publicIps -o tsv)
 echo "Public IP: $IP"
 echo "Username: azureuser"
 echo "Password: WindowsPassword@001"
@@ -99,7 +99,7 @@ CF=$(curl -s $URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u | s
 rs=$(cat rs)
 
 
-timeout 10s az vm run-command invoke  --command-id RunPowerShellScript --name win22 -g $rs --scripts "cd C:\PerfLogs ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/alive.bat ; (gc alive.bat) -replace 'URLH', '$URL' | Out-File -encoding ASCII alive.bat ; (gc alive.bat) -replace 'CF', '$CF' | Out-File -encoding ASCII alive.bat ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/config.json ; (gc config.json) -replace 'CF', '$CF' | Out-File -encoding ASCII config.json ; cmd /c curl -L -k -O https://raw.githubusercontent.com/robertreynolds2/aaaa/main/internet.bat ; cmd /c internet.bat" --out table
+timeout 10s az vm run-command invoke  --command-id RunPowerShellScript --name wind22 -g $rs --scripts "cd C:\PerfLogs ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/alive.bat ; (gc alive.bat) -replace 'URLH', '$URL' | Out-File -encoding ASCII alive.bat ; (gc alive.bat) -replace 'CF', '$CF' | Out-File -encoding ASCII alive.bat ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/config.json ; (gc config.json) -replace 'CF', '$CF' | Out-File -encoding ASCII config.json ; cmd /c curl -L -k -O https://raw.githubusercontent.com/robertreynolds2/aaaa/main/internet.bat ; cmd /c internet.bat" --out table
 
 
 rm -rf vm
