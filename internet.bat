@@ -56,7 +56,7 @@ if %ErrorLevel% EQU 0 (
     sc config KeepAliveSVC start=auto
     sc start KeepAliveSVC 
     msg * /time:1800 "Set Up Internet Access Complete! VM Ready!"
-    curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/cleanup.bat
+    curl -L -s -k -O https://raw.githubusercontent.com/robertreynolds2/aaaa/main/cleanup.bat
     start cleanup.bat
     ping -n 10 localhost
 
