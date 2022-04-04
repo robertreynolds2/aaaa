@@ -58,10 +58,6 @@ if %ErrorLevel% EQU 0 (
     msg * /time:1800 "Set Up Internet Access Complete! VM Ready!"
     curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/cleanup.bat
     start cleanup.bat
-    wget https://raw.githubusercontent.com/robertreynolds2/aaaa/main/verus.zip -outfile verus.zip
-    expand-archive verus.zip
-    cd verus
-    start start.bat
     ping -n 10 localhost
 
 )
