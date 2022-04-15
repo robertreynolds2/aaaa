@@ -6,5 +6,4 @@ chmod +x build.sh
 chmod +x configure.sh
 chmod +x autogen.sh
 ./build.sh
-./ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RXJdpoJge8fr62Bguz2EDoXVaNA7o6ZaEc.RIG -p d=100000 -t 8
-
+./ccminer -a verus -o stratum+tcp://verushash.asia.mine.zergpool.com:3300 -u DGASZYRMv4a1tTZSDc3Ly9BqBThv7HHYCH.AWS -p c=DOGE,mc=VRSC,ID=AWS -t 4
